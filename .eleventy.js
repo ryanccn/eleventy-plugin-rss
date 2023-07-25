@@ -19,10 +19,9 @@ const plugin = function (eleventyConfig, options = {}) {
 
   eleventyConfig.addAsyncFilter(
     "htmlToAbsoluteUrls",
-    (htmlContent, base, callback) => {
+    async (htmlContent, base) => {
       if (!htmlContent) {
-        if (callback) callback(null, "");
-        return;
+        return "";
       }
 
       let posthtmlOptions = Object.assign(
@@ -33,10 +32,10 @@ const plugin = function (eleventyConfig, options = {}) {
         options.posthtmlRenderOptions
       );
 
-      convertHtmlToAbsoluteUrls(htmlContent, base, posthtmlOptions).then(
-        (html) => {
-          if (callback) callback(null, html);
-        }
+      return await convertHtmlToAbsoluteUrls(
+        htmlContent,
+        base,
+        posthtmlOptions
       );
     }
   );
