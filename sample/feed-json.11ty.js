@@ -9,12 +9,17 @@ module.exports.data = {
     url: "https://example.com/",
     author: {
       name: "Boaty McBoatFace",
-      url: "https://example.com/about-boaty/"
-    }
-  }
+      url: "https://example.com/about-boaty/",
+    },
+  },
 };
 
-module.exports.render = async function({ permalink, metadata, collections, normalizeAbsoluteUrls }) {
+module.exports.render = async function ({
+  permalink,
+  metadata,
+  collections,
+  normalizeAbsoluteUrls,
+}) {
   let feed = {
     version: "https://jsonfeed.org/version/1.1",
     title: metadata.title,
@@ -26,10 +31,10 @@ module.exports.render = async function({ permalink, metadata, collections, norma
       name: metadata.author.name,
       url: metadata.author.url,
     },
-    items: []
+    items: [],
   };
 
-  for(let post of collections.posts.slice().reverse()) {
+  for (let post of collections.posts.slice().reverse()) {
     let absolutePostUrl = this.absoluteUrl(this.url(post.url), metadata.url);
     let item = {
       id: absolutePostUrl,
@@ -38,8 +43,11 @@ module.exports.render = async function({ permalink, metadata, collections, norma
       date_published: this.dateToRfc3339(post.date),
       content_html: post.templateContent,
     };
-    if(normalizeAbsoluteUrls) {
-      item.content_html = await this.htmlToAbsoluteUrls(item.content_html, absolutePostUrl);
+    if (normalizeAbsoluteUrls) {
+      item.content_html = await this.htmlToAbsoluteUrls(
+        item.content_html,
+        absolutePostUrl
+      );
     }
     feed.items.push(item);
   }

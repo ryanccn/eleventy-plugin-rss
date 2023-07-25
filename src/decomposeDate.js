@@ -1,20 +1,20 @@
 const pad = require("./padDate");
 
-const shortDayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const shortDayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 const shortMonthNames = [
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
-  'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec'
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
 ];
 
 /**
@@ -22,7 +22,7 @@ const shortMonthNames = [
  * @param {Date} date
  * @returns {Object}
  */
-module.exports = function(date) {
+module.exports = function (date) {
   const day = pad(date.getDate(), 2);
 
   const dayName = shortDayNames[date.getDay()];
@@ -42,6 +42,6 @@ module.exports = function(date) {
     year,
     hours,
     minutes,
-    seconds
+    seconds,
   };
 };

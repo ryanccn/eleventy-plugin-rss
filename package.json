@@ -1,47 +1,47 @@
 {
-  "name": "@11ty/eleventy-plugin-rss",
-  "version": "1.2.0",
+  "name": "@ryanccn/eleventy-plugin-rss",
+  "version": "1.2.1",
   "description": "A pack of Eleventy plugins for generating an RSS feed using the Nunjucks templating engine.",
   "publishConfig": {
     "access": "public"
   },
   "main": ".eleventy.js",
+  "files": [
+    "LICENSE",
+    "COPYING.md",
+    ".eleventy.js",
+    "src"
+  ],
   "scripts": {
-    "test": "npx ava",
     "sample": "cd sample && npx @11ty/eleventy --config=config-sample.js",
     "clean": "rm -rf sample/_site"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/11ty/eleventy-plugin-rss.git"
-  },
-  "funding": {
-    "type": "opencollective",
-    "url": "https://opencollective.com/11ty"
+    "url": "git+https://github.com/ryanccn/eleventy-plugin-rss.git"
   },
   "keywords": [
     "eleventy",
     "eleventy-plugin"
   ],
   "author": {
-    "name": "Zach Leatherman",
-    "email": "zachleatherman@gmail.com",
-    "url": "https://zachleat.com/"
+    "name": "Ryan Cao",
+    "url": "https://ryanccn.dev/"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/11ty/eleventy-plugin-rss/issues"
+    "url": "https://github.com/ryanccn/eleventy-plugin-rss/issues"
   },
-  "homepage": "https://www.11ty.dev/docs/plugins/rss/",
+  "homepage": "https://github.com/ryanccn/eleventy-plugin-rss",
   "11ty": {
     "compatibility": ">=0.11"
-  },
-  "devDependencies": {
-    "ava": "^4.3.0"
   },
   "dependencies": {
     "debug": "^4.3.4",
     "posthtml": "^0.16.6",
     "posthtml-urls": "1.0.0"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
   }
 }

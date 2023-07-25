@@ -1,6 +1,6 @@
 // Atom uses RFC 3339 dates
 // https://tools.ietf.org/html/rfc3339#section-5.8
-module.exports = function(dateObj) {
+module.exports = function (dateObj) {
   let s = dateObj.toISOString();
 
   // remove milliseconds
@@ -8,4 +8,4 @@ module.exports = function(dateObj) {
   split.pop();
 
   return split.join("") + "Z";
-}
+};
